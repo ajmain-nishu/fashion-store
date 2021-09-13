@@ -3,7 +3,6 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -23,6 +22,7 @@ body {
 .single-product:hover {
   box-shadow: 1px 3px 20px #dfe6e9, 1px 3px 10px #dfe6e9;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .product-image {
@@ -37,6 +37,17 @@ body {
   border-radius: 5px;
 }
 
+@media only screen and (max-width: 1100px) {
+  #all-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cart {
+    width: 280px;
+  }
+}
+
 
 @media only screen and (max-width: 768px) {
   #all-products {
@@ -45,8 +56,7 @@ body {
   }
 
   .cart {
-    width: 300px;
-    margin: auto;
-    margin-bottom: 10px;
+    width: 350px;
+    margin: 10px auto;
   }
 }
