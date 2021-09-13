@@ -1,8 +1,10 @@
+//local data fetch function
 const loadProducts = () => {
     const url = '../json/data.json'
     fetch(url)
-    .then((response) => response.json())
-    .then((data) => showProducts(data));
+    .then(res => res.json())
+    .then(data => showProducts(data))
+    
 };
 
 
@@ -14,22 +16,24 @@ const showProducts = (products) => {
         div.innerHTML = `
         <div class="single-product">
             <div>
-                <img class="product-image" src=${product.image}></img>
+            <img class="product-image" src=${product.image}></img>
             </div>
             <h3>${product.title}</h3>
             <p>Category: ${product.category}</p>
             <p>Rating : ${product.rating.rate}</p>
             <p>Reviews: ${product.rating.count}</p>
-            <h2>Price:  ${product.price}</h2>
-            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="btn btn-secondary">add to cart</button>
-            <button id="details-btn" class="btn btn-outline-secondary">Details</button>
-        </div>
+            <h2>Price: $ ${product.price}</h2>
+            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-secondary">add to cart</button>
+            <button id="details-btn" class="btn btn-outline-secondary">Details</button></div>
         `;
         document.getElementById("all-products").appendChild(div);
     }
 };
+
+
+// add-to-cart button
 let count = 0;
-const addToCart = (price) => {
+const addToCart = (id, price) => {
     count = count + 1;
     updatePrice("price", price);
 
@@ -38,11 +42,14 @@ const addToCart = (price) => {
     document.getElementById("total-Products").innerText = count;
 };
 
+
+//price parse float funtion
 const getInputValue = (id) => {
     const element = document.getElementById(id).innerText;
     const converted = parseFloat(element);
     return converted;
 };
+
 
 // main price update function
 const updatePrice = (id, value) => {
@@ -52,10 +59,12 @@ const updatePrice = (id, value) => {
     document.getElementById(id).innerText = total.toFixed(2);
 };
 
+
 // set innerText function
 const setInnerText = (id, value) => {
     document.getElementById(id).innerText = value;
 };
+
 
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
@@ -74,11 +83,14 @@ const updateTaxAndCharge = () => {
     }
 };
 
-//grandTotal update function
+
+//total price update function
 const updateTotal = () => {
     const grandTotal =
         getInputValue("price") + getInputValue("delivery-charge") +
         getInputValue("total-tax");
     document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+//local data fetch function call
 loadProducts();

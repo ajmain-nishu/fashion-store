@@ -2,43 +2,53 @@
 <html lang="en">
 
 <head>
+  <!-- meta tag -->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- title tag -->
   <title>Easy Store</title>
+
+  <!-- external css link -->
   <link rel="stylesheet" href="./css/style.css" />
-  <!-- Latest compiled and minified CSS -->
+
+  <!-- bootstrap cdn css link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
 
   <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
 </head>
 
 <body>
 
 
-  
+  <!-- main section start -->
   <main>
-    
+
+    <!-- search part start -->
+    <div class="input-group my-5 w-50 mx-auto">
+      <input id="input-field" type="text" class="form-control" placeholder="Search products" aria-label="product search"
+        aria-describedby="basic-addon2">
+      <button class="btn btn-secondary" id="search-btn" onclick="loadProducts()">Search</button>
+    </div>
+    <!-- search part end -->
 
 
-      <div class="input-group my-5 w-50 mx-auto">
-        <input id="input-field" type="text" class="form-control" placeholder="Search products" aria-label="product search" aria-describedby="basic-addon2">
-        <button class="btn btn-secondary" id="search-btn" onclick="loadProducts()">Search</button>
-      </div>
-
-
-
-
+    <!-- product item part -->
     <div class="container">
       <div class="row">
+
+        <!-- product item -->
         <div class="col-lg-9 col-md-8 col-sm-6 col-12">
           <div id="all-products"></div>
         </div>
+
+        <!-- cart item -->
         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
           <div class="cart" id="my-cart">
             <table class="table">
@@ -52,30 +62,40 @@
                 </tr>
               </thead>
               <tbody>
+
+                <!-- total products -->
                 <tr>
                   <th>Total Added-Products:</th>
                   <td>&nbsp; &nbsp;<span id="total-Products">0</span></td>
                   <td></td>
                   <td></td>
                 </tr>
+
+                <!-- price -->
                 <tr>
                   <th>Price:</th>
                   <td>$ <span id="price">0</span></td>
                   <td></td>
                   <td></td>
                 </tr>
+
+                <!-- delivery charge -->
                 <tr>
                   <th>Delivery-Charge:</th>
                   <td>$ <span id="delivery-charge">20</span></td>
                   <td></td>
                   <td></td>
                 </tr>
+
+                <!-- total tax -->
                 <tr>
                   <th>Total-Tax:</th>
                   <td>$ <span id="total-tax">0</span></td>
                   <td></td>
                   <td></td>
                 </tr>
+
+                <!-- total price -->
                 <tr>
                   <th scope="row">Total</th>
                   <td colspan="2">$ <span id="total">0</span></td>
@@ -83,24 +103,31 @@
                 </tr>
               </tbody>
             </table>
+
+            <!-- buy now button -->
             <div class="text-center">
               <button class="btn btn-outline-secondary text-center">Buy Now</button>
             </div>
+            
           </div>
         </div>
       </div>
     </div>
-    
+    <!-- product item part end -->
+
   </main>
+  <!-- main section end -->
 
 
-
+  <!-- bootstrap cdn js link -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
   </script>
 
-  <!-- add javascript  file  -->
+  <!-- external js link  -->
   <script src="./js/app.js"></script>
+
+
 </body>
 
 </html>
