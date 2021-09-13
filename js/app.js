@@ -3,26 +3,25 @@ const loadProducts = () => {
     const url = '../json/data.json'
     fetch(url)
     .then(res => res.json())
-    .then(data => showProducts(data))
-    
+    .then(data => showProducts(data));
 };
 
 
 // show all product in UI 
 const showProducts = (products) => {
-    const allProducts = products.map((pd) => pd);
+    const allProducts = products.map((product) => product);
     for (const product of allProducts) {
         const div = document.createElement("div");
         div.innerHTML = `
         <div class="single-product">
             <div>
-            <img class="product-image" src=${product.image}></img>
+                <img class="product-image" src=${product.image}></img>
             </div>
             <h3>${product.title}</h3>
             <p>Category: ${product.category}</p>
             <p>Rating : ${product.rating.rate}</p>
             <p>Reviews: ${product.rating.count}</p>
-            <h2>Price: $ ${product.price}</h2>
+            <h2>Price:  ${product.price}</h2>
             <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-secondary">add to cart</button>
             <button id="details-btn" class="btn btn-outline-secondary">Details</button></div>
         `;
