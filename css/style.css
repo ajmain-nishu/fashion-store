@@ -49,6 +49,8 @@
   position: fixed;
 }
 
+
+
 /* media query start */
 @media only screen and (max-width: 1000px) {
   #all-products {
