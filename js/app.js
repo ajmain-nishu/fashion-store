@@ -1,3 +1,4 @@
+//product api data
 const loadProducts = () => {
     const data = [{
         "id": 1,
